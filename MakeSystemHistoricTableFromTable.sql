@@ -107,10 +107,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 '
 ALTER TABLE ' + @TableFullPath + ' 
   ADD SysStartTime datetime2(0) GENERATED ALWAYS AS ROW START HIDDEN  
-        CONSTRAINT DF_' + @TableName + '_SysStart 
+        CONSTRAINT [DF_' + @TableName + '_SysStart] 
 		DEFAULT ' + @StartTimeFunction + '
     , SysEndTime datetime2(0) GENERATED ALWAYS AS ROW END HIDDEN  
-        CONSTRAINT DF_' + @TableName + '_SysEnd 
+        CONSTRAINT [DF_' + @TableName + '_SysEnd] 
 		DEFAULT CONVERT(datetime2 (0), ''9999-12-31 23:59:59'')
 	, PERIOD FOR SYSTEM_TIME (SysStartTime, SysEndTime) 
 ;'
